@@ -6,7 +6,7 @@ import os
 cap = cv.VideoCapture(0)
 
 face_detector = dlib.get_frontal_face_detector()
-face_points = dlib.shape_predictor('face_shape68.dat')
+face_points = dlib.shape_predictor('shape_predictor_68_face_landmarks.dat')
 
 faces_data = []
 names = []
