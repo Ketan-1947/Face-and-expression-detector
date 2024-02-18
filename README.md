@@ -7,7 +7,7 @@ This considers mouth as primary source to predict expression.
 <h2>How to run on your local device</h2>
   <li>
     <ol>download "shape_predictor_68_face_landmarks.dat" from <a href="https://github.com/tzutalin/dlib-android/blob/master/data/shape_predictor_68_face_landmarks.dat">here</a></ol>
-    <ol>Run FaceData.py to gather data
+    <ol>Run FaceData.py to gather data</ol>
       <li>
         <ul>press "c" to capture "FACIAL FEATURES"</ul>
         <ul>press "e" to capture "EXPRESSION'S FEATURES"</ul>
