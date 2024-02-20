@@ -35,20 +35,21 @@ while True:
 
     faces = face_detector(frame)
     show_face = frame
-    if faces:
-        face = faces[0]
+    for face in faces:
         ## getting face from screen
         x1, y1, x2, y2 = face.left(), face.top(), face.right(), face.bottom()
         show_face = frame[y1:y2, x1:x2]
-        show_face = cv.resize(show_face , (300, 300))
-        show_gray_face = cv.cvtColor(show_face, cv.COLOR_BGR2GRAY)
-        name = FaceModel.predict([show_gray_face.flatten()])[0]
-        cv.putText(frame, name, (x1, y1-10), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+        if show_face.size == 0:
+            continue
+        else:
+            show_face = cv.resize(show_face , (300, 300))
+            show_gray_face = cv.cvtColor(show_face, cv.COLOR_BGR2GRAY)
+            name = FaceModel.predict([show_gray_face.flatten()])[0]
+            cv.putText(frame, name, (x1, y1-10), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
         ## getting face from cropped image
         new_faces = face_detector(show_face)
-        if new_faces:
-            new_face = new_faces[0]
+        for new_face in new_faces:
             landmarks = face_points(show_face , new_face)
             face_data = []
             for n in range(48, 68):
